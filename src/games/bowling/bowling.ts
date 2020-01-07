@@ -1,4 +1,4 @@
-import Game from './game.abstract';
+import Game from '../game.abstract';
 
 export default class Bowling extends Game {
   constructor(protected input: string) {

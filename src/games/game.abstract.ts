@@ -1,9 +1,5 @@
 export default abstract class Game {
-  constructor(protected input: string) {
-    if (!input) {
-      throw new Error('No input provided');
-    }
-  }
+  constructor(protected input: string) {}
 
   public abstract getScore(): number;
 
