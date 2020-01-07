@@ -23,8 +23,38 @@ describe('Bowling Game', () => {
     expect(game.getScore()).to.equal(150);
   });
 
-  it('should equal 190', () => {
+  it('should equal 118', () => {
     const game: Bowling = new Bowling('1/-1/-1/-1/-1/-1/-1/-1/-1/-1/-9');
-    expect(game.getScore()).to.equal(190);
+    expect(game.getScore()).to.equal(118);
+  });
+
+  it('should equal 50', () => {
+    const game: Bowling = new Bowling('00-00-00-00-00-00-00-00-1/-XXX');
+    expect(game.getScore()).to.equal(50);
+  });
+
+  it('should equal 29', () => {
+    const game: Bowling = new Bowling('00-00-00-00-00-00-00-00-00-XX9');
+    expect(game.getScore()).to.equal(29);
+  });
+
+  it('should equal 30', () => {
+    const game: Bowling = new Bowling('X-X-00-00-00-00-00-00-00-00');
+    expect(game.getScore()).to.equal(30);
+  });
+
+  it('should equal 60', () => {
+    const game: Bowling = new Bowling('X-X-X-00-00-00-00-00-00-00');
+    expect(game.getScore()).to.equal(60);
+  });
+
+  it('should equal 32', () => {
+    const game: Bowling = new Bowling('1/-1/-1/-00-00-00-00-00-00-00');
+    expect(game.getScore()).to.equal(32);
+  });
+
+  it('should equal 30', () => {
+    const game: Bowling = new Bowling('00-00-00-00-00-00-00-00-1/-1/9');
+    expect(game.getScore()).to.equal(30);
   });
 });
