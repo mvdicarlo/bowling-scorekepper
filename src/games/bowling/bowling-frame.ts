@@ -9,7 +9,7 @@ export default class BowlingFrame implements Turn {
 
   constructor(private game: Bowling, turn: number, value: string) {
     this.turn = turn;
-    this.calculateThrows(value.toLocaleLowerCase().trim());
+    this.calculateThrows(value.toLowerCase().trim());
   }
 
   public getTotalFrameValue(): number {
