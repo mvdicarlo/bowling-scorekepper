@@ -48,6 +48,11 @@ describe('Bowling Game', () => {
     expect(game.getScore()).to.equal(60);
   });
 
+  it('should equal 14', () => {
+    const game: Bowling = new Bowling('00-00-00-00-X-11-00-00-00-00');
+    expect(game.getScore()).to.equal(14);
+  });
+
   it('should equal 32', () => {
     const game: Bowling = new Bowling('1/-1/-1/-00-00-00-00-00-00-00');
     expect(game.getScore()).to.equal(32);
@@ -60,6 +65,21 @@ describe('Bowling Game', () => {
 
   it('should equal 20', () => {
     const game: Bowling = new Bowling('00-00-00-00-00-00-00-00-00-X7/');
+    expect(game.getScore()).to.equal(20);
+  });
+
+  it('should equal 20', () => {
+    const game: Bowling = new Bowling('00-00-00-00-00-00-00-00-00-9/X');
+    expect(game.getScore()).to.equal(20);
+  });
+
+  it('should equal 20', () => {
+    const game: Bowling = new Bowling('00-00-00-9/-50-00-00-00-00-00');
+    expect(game.getScore()).to.equal(20);
+  });
+
+  it('should equal 20', () => {
+    const game: Bowling = new Bowling('00-00-00-91-50-00-00-00-00-00');
     expect(game.getScore()).to.equal(20);
   });
 });

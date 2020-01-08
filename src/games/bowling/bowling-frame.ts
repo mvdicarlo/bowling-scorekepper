@@ -54,7 +54,7 @@ export default class BowlingFrame implements Turn {
   }
 
   private calculateThrows(value: string): void {
-    if (value.includes('x')) {
+    if (value[0] === 'x') {
       this.frameType = BowlingFrameType.STRIKE;
     } else if (value.includes('/')) {
       this.frameType = BowlingFrameType.SPARE;
@@ -74,5 +74,12 @@ export default class BowlingFrame implements Turn {
     });
 
     this.bowlingThrows = values;
+
+    // Requirement: Spare when the bowler knocks down all 10 pins using two throws
+    if (this.getFrameType() === BowlingFrameType.OPEN) {
+      if (this.bowlingThrows[0] + this.bowlingThrows[1] === 10) {
+        this.frameType = BowlingFrameType.SPARE;
+      }
+    }
   }
 }
