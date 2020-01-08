@@ -18,10 +18,8 @@ export default class Bowling extends Game {
   }
 
   private parseFrames(framesInput: string): void {
-    framesInput
+    this.frames = framesInput
       .split('-')
-      .forEach((frame: string) => {
-      this.frames.push(new BowlingFrame(this, this.frames.length + 1, frame));
-    });
+      .map((frame: string, index: number) => new BowlingFrame(this, index + 1, frame.trim()));
   }
 }

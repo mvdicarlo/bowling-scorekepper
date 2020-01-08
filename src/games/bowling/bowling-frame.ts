@@ -56,27 +56,23 @@ export default class BowlingFrame implements Turn {
   private calculateThrows(value: string): void {
     if (value.includes('x')) {
       this.frameType = BowlingFrameType.STRIKE;
-      this.bowlingThrows = Array.from(value).map((v) => {
-        if (v === 'x') {
-          return 10;
-        }
-        return parseInt(v, 10);
-      });
     } else if (value.includes('/')) {
       this.frameType = BowlingFrameType.SPARE;
-      const thrown = Array.from(value).map((v) => {
-        if (v === 'x') {
-          return 10;
-        } else if (v === '/') {
-          return -1;
-        }
-        return parseInt(v, 10);
-      });
-      thrown[1] = 10 - thrown[0];
-      this.bowlingThrows = thrown;
     } else {
       this.frameType = BowlingFrameType.OPEN;
-      this.bowlingThrows = [parseInt(value[0], 10) || 0, parseInt(value[1], 10) || 0];
     }
+
+    const values: number[] = [];
+    Array.from(value).forEach((v: string, index: number) => {
+      if (v === 'x') {
+        values.push(10);
+      } else if (v === '/') {
+        values.push(10 - values[index - 1]);
+      } else {
+        values.push(parseInt(v, 10) || 0);
+      }
+    });
+
+    this.bowlingThrows = values;
   }
 }

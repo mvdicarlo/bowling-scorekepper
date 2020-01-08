@@ -6,6 +6,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+// Expected Format: 00-00-00-00-00-00-00-00-00-00
 rl.question('Please provide a bowling game ', (answer: string) => {
   const game: Bowling = new Bowling(answer);
   console.log(`The score of the game was: ${game.getScore()}`);

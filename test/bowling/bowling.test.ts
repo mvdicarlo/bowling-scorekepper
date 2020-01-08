@@ -57,4 +57,9 @@ describe('Bowling Game', () => {
     const game: Bowling = new Bowling('00-00-00-00-00-00-00-00-1/-1/9');
     expect(game.getScore()).to.equal(30);
   });
+
+  it('should equal 20', () => {
+    const game: Bowling = new Bowling('00-00-00-00-00-00-00-00-00-X7/');
+    expect(game.getScore()).to.equal(20);
+  });
 });
