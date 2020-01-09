@@ -81,5 +81,9 @@ export default class BowlingFrame implements Turn {
         this.frameType = BowlingFrameType.SPARE;
       }
     }
+
+    if (this.getTurnNumber() !== 10) {
+      this.bowlingThrows = this.bowlingThrows.slice(0, 2);
+    }
   }
 }

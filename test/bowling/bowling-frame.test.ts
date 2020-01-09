@@ -34,7 +34,7 @@ describe('Bowling Turn', () => {
   });
 
   it('should score 30', () => {
-    const turn: BowlingFrame = new BowlingFrame(game, 1, 'XXX');
+    const turn: BowlingFrame = new BowlingFrame(game, 10, 'XXX');
     expect(turn.getTotalFrameValue()).to.equal(30);
   });
 });
